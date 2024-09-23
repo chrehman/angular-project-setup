@@ -1,0 +1,16 @@
+<div class="input-wrapper">
+  <!-- Optional label -->
+  @if (label) {
+    <label>{{ label }}</label>
+  }
+
+  <!-- Input element with dynamic properties -->
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    [disabled]="disabled"
+    (input)="onInputChange($event)"
+    class="form-control"
+  />
+</div>

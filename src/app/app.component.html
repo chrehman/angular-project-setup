@@ -332,8 +332,23 @@
         type="button"
         class="primary"
         [disabled]="false"
-        (onClick)="handleSubmit()"
+        (onClick)="handleSubmit($event)"
       ></custom-button>
+      <app-custom-input
+        [type]="'text'"
+        [placeholder]="'Enter your name'"
+        [value]="userName"
+        [label]="'Name'"
+        (valueChange)="onNameChange($event)"
+      ></app-custom-input>
+
+      <app-custom-input
+        [type]="'email'"
+        [placeholder]="'Enter your email'"
+        [value]="userEmail"
+        [label]="'Email'"
+        (valueChange)="onEmailChange($event)"
+      ></app-custom-input>
     </div>
   </div>
 </main>
