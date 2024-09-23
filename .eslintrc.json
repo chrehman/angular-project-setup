@@ -1,0 +1,53 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint", "prettier", "unused-imports"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "prettier/prettier": ["error"], // Enforces Prettier formatting rules
+    "no-console": "warn", // Warns for console.log usage
+    "no-debugger": "error", // Disallows the use of `debugger`
+    "unused-imports/no-unused-imports": "error", // Removes unused imports
+    "@typescript-eslint/no-unused-vars": [
+      "error", // Disallows unused variables
+      { "argsIgnorePattern": "^_" } // Allows unused variables that start with `_`
+    ],
+    "@typescript-eslint/no-explicit-any": "warn", // Warns against using `any`
+    "@angular-eslint/component-class-suffix": [
+      "error",
+      { "suffixes": ["Component"] }
+    ], // Enforces component suffix
+    "@angular-eslint/directive-class-suffix": [
+      "error",
+      { "suffixes": ["Directive"] }
+    ], // Enforces directive suffix
+    "quotes": ["error", "single"], // Enforces single quotes
+    "semi": ["error", "always"], // Enforces semicolons
+    "indent": ["error", 2], // Enforces 2-space indentation
+    "eol-last": ["error", "always"], // Enforces newline at the end of files
+    "arrow-parens": ["error", "always"] // Enforces parentheses around arrow function arguments
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "rules": {
+        "@typescript-eslint/explicit-function-return-type": "off" // Disables the need for explicit return types in functions
+      }
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "error" // Enforces no negated async pipes
+      }
+    }
+  ]
+}
